@@ -1,0 +1,21 @@
+.sidedrawer {
+  width: 100%;
+}
+
+.mainpage {
+  display: flex;
+  height: 92vh; 
+  width: 100vw; 
+  overflow: hidden; 
+}
+
+.chat{
+  overflow: hidden;
+}
+
+.right {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  background-color: #d1d1d0; 
+}

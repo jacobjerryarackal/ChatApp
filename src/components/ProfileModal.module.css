@@ -1,0 +1,75 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px; 
+  z-index: 1000; 
+  width: 400px; 
+  max-height: 80vh;
+  overflow-y: auto; 
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 15px;
+}
+
+.profilePic {
+  width: 250px; 
+  height: 250px; 
+  border-radius: 50%;
+}
+  
+.profilePicPlaceholder {
+  width: 100px; 
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px; 
+  font-weight: bold;
+}
+
+.h3 {
+  font-size: 24px; 
+}
+
+.p {
+  font-size: 18px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f00;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}

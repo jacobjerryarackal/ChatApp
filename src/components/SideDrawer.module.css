@@ -1,0 +1,232 @@
+/* Existing Styles */
+
+.sideDrawer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: #e6e6e6;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 250px;
+  max-width: 100%;
+}
+
+.searchIcon {
+  margin-right: 8px;
+  color: #555;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 20px;
+  color: #333;
+  flex: 1;
+  text-align: center;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notification {
+  position: relative;
+}
+
+.icon {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 10px;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.avatarPlaceholder {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 150px;
+  z-index: 10;
+}
+
+.dropdownVisible {
+  display: block;
+}
+
+.menuItem {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background: #f0f0f0;
+}
+
+.drawerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-start;
+  z-index: 20;
+}
+
+.drawer {
+  width: 350px; /* Increased width for better display */
+  background: #fff;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.drawerOpen {
+  transform: translateX(0); 
+}
+
+.drawerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.drawerBody {
+  margin-top: 20px;
+  flex: 1;
+}
+
+.drawerInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.searchButton {
+  padding: 8px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Additional Styles for User List Items */
+
+.resultsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.resultItem:hover {
+  background: #f0f0f0;
+}
+
+.resultAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.resultDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultName {
+  font-weight: bold;
+  color: #333;
+}
+
+.resultEmail {
+  color: #555;
+}
