@@ -99,6 +99,8 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
   }>({ messageId: "", visible: false, x: 0, y: 0 });
 
   const contextMenuRef = useRef<HTMLDivElement>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // New state for search field
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [sendMessage] = useMutation(SEND_MESSAGE, {
     client,
@@ -339,6 +341,18 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
     }
   }, [selectedChat]);
 
+  const handleSearchClick = () => {
+    setIsSearchOpen(!isSearchOpen); 
+  };
+
+  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredMessages = chatMessages.filter((message) =>
+    message.text.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
 
 
   if (!selectedChat || !selectedUser) {
@@ -361,13 +375,35 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
           </div>
         </div>
         <div className={styles.chatHeaderActions}>
-          <FaSearch className={styles.icon} />
+        <FaSearch className={styles.icon} onClick={handleSearchClick} />
+          {isSearchOpen && (
+            <input
+              type="text"
+              placeholder="Search messages..."
+              className={styles.searchInput}
+              value={searchTerm}
+              onChange={handleSearchInputChange}
+            />
+          )}
           <FaVideo onClick={() => setIsVideoCallModalOpen(true)} className={styles.icon} />
           <FaEllipsisV className={styles.icon} />
         </div>
       </div>
 
+    
+
       <div className={styles.chatArea}>
+      {filteredMessages.map((message) => (
+          <div
+            key={message.id}
+            className={`${styles.message} ${
+              message.sender.id === selectedUser?.id ? styles.messageOwn : ""
+            }`}
+          >
+            <span className={styles.messageText}>{message.text}</span>
+          </div>
+        ))}
+        
         {chatMessages.map((message) => (
           <div
             key={message.id}
