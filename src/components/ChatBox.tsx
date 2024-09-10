@@ -99,7 +99,7 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
   }>({ messageId: "", visible: false, x: 0, y: 0 });
 
   const contextMenuRef = useRef<HTMLDivElement>(null);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // New state for search field
+  const [isSearchOpen, setIsSearchOpen] = useState(false); 
   const [searchTerm, setSearchTerm] = useState("");
 
   const [sendMessage] = useMutation(SEND_MESSAGE, {
@@ -298,7 +298,7 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
   useEffect(() => {
     if (!socket) return;
   
-    // Listen for the delete-message event from WebSocket
+  
     const handleDeletedMessage = (deletedMessageData: { chatId: string; messageId: string }) => {
       if (selectedChat?.id === deletedMessageData.chatId) {
         setChatMessages((prevMessages) =>
@@ -309,7 +309,7 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
   
     socket.on('delete-message', handleDeletedMessage);
   
-    // Cleanup the listener on unmount
+  
     return () => {
       socket.off('delete-message', handleDeletedMessage);
     };
@@ -359,6 +359,25 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
     return <div>No chat selected</div>;
   }
 
+  const highlightSearchTerm = (text: string, searchTerm: string) => {
+    if (!searchTerm) return text;
+    const parts = text.split(new RegExp(`(${searchTerm})`, 'gi')); 
+    return (
+      <>
+        {parts.map((part, index) =>
+          part.toLowerCase() === searchTerm.toLowerCase() ? (
+            <span key={index} style={{ backgroundColor: "yellow" }}>
+              {part}
+            </span>
+          ) : (
+            part
+          )
+        )}
+      </>
+    );
+  };
+  
+
   return (
     <div className={styles.chatBox}>
       <div className={styles.chatHeader}>
@@ -393,17 +412,19 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
     
 
       <div className={styles.chatArea}>
-      {filteredMessages.map((message) => (
+              {filteredMessages.map((message) => (
           <div
             key={message.id}
             className={`${styles.message} ${
               message.sender.id === selectedUser?.id ? styles.messageOwn : ""
             }`}
           >
-            <span className={styles.messageText}>{message.text}</span>
+            <span className={styles.messageText}>
+              {highlightSearchTerm(message.text, searchTerm)}
+            </span>
           </div>
         ))}
-        
+
         {chatMessages.map((message) => (
           <div
             key={message.id}

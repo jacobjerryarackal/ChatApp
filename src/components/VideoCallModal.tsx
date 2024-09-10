@@ -21,6 +21,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ isOpen, onClose, socket
   useEffect(() => {
     if (socket) {
       socket.on('receive-call', (offer: RTCSessionDescriptionInit) => {
+        console.log('Received call offer:', offer);
         setOffer(offer);
         setIsCalling(true);
       });
