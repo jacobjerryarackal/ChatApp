@@ -1,7 +1,8 @@
+"use client"
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './VideoCallModal.module.css';
 
-interface VideoCallModalProps {
+interface VideoCallModalProps { 
   isOpen: boolean;
   onClose: () => void;
   socket: any;

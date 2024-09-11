@@ -184,7 +184,6 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
   if (!socket) return;
 
   const handleMessage = (receivedMessage: Message) => {
-    // Check if the message already exists to avoid duplication
     setChatMessages((prevMessages) => {
       const isDuplicate = prevMessages.some((msg) => msg.id === receivedMessage.id);
       if (!isDuplicate) {
