@@ -225,7 +225,7 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
       });
       
   
-      // Emit the message over the WebSocket
+      
       socket.emit('send-message', {
         chatId: selectedChat.id,
         message: data.sendMessage,
@@ -277,16 +277,15 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
         variables: { deleteMessageId: parseInt(messageId, 10) },
       });
   
-      // Update local state immediately
-      setChatMessages((prevMessages) =>
-        prevMessages.filter((msg) => msg.id !== messageId)
-      );
-  
       // Emit the delete-message event over WebSocket after deletion
       socket.emit('delete-message', {
         chatId: selectedChat?.id,
         messageId: messageId,
       });
+
+      setChatMessages((prevMessages) =>
+        prevMessages.filter((msg) => msg.id !== messageId)
+      );
   
       setContextMenu({ ...contextMenu, visible: false });
     } catch (error) {
