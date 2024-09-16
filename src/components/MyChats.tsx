@@ -76,7 +76,7 @@ function MyChats({ onChatSelect }: { onChatSelect: (chat: Chat | null, user: Use
     variables: { userId },
     skip: !userId,
     client,
-    pollInterval: 1500,
+    pollInterval: 1000,
   });
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
