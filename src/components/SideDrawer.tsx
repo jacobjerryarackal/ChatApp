@@ -84,6 +84,7 @@ function SideDrawer() {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("user");
     console.log(userData)
+    console.log(token)
 
     if (!token || !userData) {
       router.push("/login");
