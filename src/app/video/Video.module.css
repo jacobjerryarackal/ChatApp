@@ -1,0 +1,53 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+  }
+  
+  .h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .input {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .video_container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+  .video {
+    width: 45%;
+    height: 300px;
+    background-color: black;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
