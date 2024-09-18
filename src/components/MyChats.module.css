@@ -176,7 +176,7 @@
   background-color: #d3d3d3; 
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
