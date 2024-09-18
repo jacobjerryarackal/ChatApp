@@ -1,10 +1,12 @@
 .sidebar {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #f6f6f6;
   border-right: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
 .search {
@@ -38,7 +40,6 @@
   left: 0;
   right: 0;
   background-color: #fff;
-  /* border: 1px solid #ddd; */
   max-height: 200px;
   overflow-y: auto;
   z-index: 10; 
@@ -173,4 +174,72 @@
 
 .selected {
   background-color: #d3d3d3; 
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .search {
+    padding: 8px;
+  }
+
+  .searchInput {
+    font-size: 14px;
+  }
+
+  .resultsList {
+    max-height: 150px;
+  }
+
+  .chatItem, .Chat_item {
+    padding: 8px 10px;
+  }
+
+  .chatAvatar, .Avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .chatName, .Username {
+    font-size: 14px;
+  }
+
+  .chatMessage, .Last_message {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInput {
+    font-size: 12px;
+  }
+
+  .resultsList {
+    max-height: 120px;
+  }
+
+  .chatItem, .Chat_item {
+    padding: 6px 8px;
+  }
+
+  .chatAvatar, .Avatar {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+  }
+
+  .chatName, .Username {
+    font-size: 12px;
+  }
+
+  .chatMessage, .Last_message {
+    font-size: 10px;
+  }
 }
