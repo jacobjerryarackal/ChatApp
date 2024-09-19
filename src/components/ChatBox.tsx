@@ -6,6 +6,7 @@ import ProfileModal from "./ProfileModal";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { ApolloClient, InMemoryCache, useMutation, gql } from "@apollo/client";
 import VideoCallModal from "../components/VideoCallModal";
+import { useRouter } from "next/navigation";
 
 interface User {
   id: string;
@@ -101,6 +102,7 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
   const contextMenuRef = useRef<HTMLDivElement>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false); 
   const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter()
 
   const [sendMessage] = useMutation(SEND_MESSAGE, {
     client,
@@ -402,7 +404,8 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
               onChange={handleSearchInputChange}
             />
           )}
-          <FaVideo onClick={() => setIsVideoCallModalOpen(true)} className={styles.icon} />
+          <FaVideo onClick={() => router.push('/video')} className={styles.icon} />
+          {/* <FaVideo onClick={() => setIsVideoCallModalOpen(true)} className={styles.icon} /> */}
           <FaEllipsisV className={styles.icon} />
         </div>
       </div>
@@ -471,11 +474,11 @@ function ChatBox({ selectedChat, selectedUser, socket }: ChatBoxProps) {
           Send
         </button>
       </div>
-      {isVideoCallModalOpen && (
+      {/* {isVideoCallModalOpen && (
         <VideoCallModal
           isOpen={isVideoCallModalOpen}
           onClose={() => setIsVideoCallModalOpen(false)} socket={socket} userId={selectedUser.id}        />
-      )}
+      )} */}
       
 
       {isModalOpen && (
